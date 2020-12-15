@@ -1,0 +1,61 @@
+targets:
+  BookStore:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+      - path: Resources
+      - path: Supporting Files
+        excludes:
+          - BookStore-Info.plist
+          - BookStoreTests-Info.plist
+    configFiles:
+      Debug: ../../ConfigurationSettings/BookStore-Debug.xcconfig
+      Release: ../../ConfigurationSettings/BookStore-Release.xcconfig
+    attributes:
+      ProvisioningStyle: Manual
+    dependencies:
+      - sdk: UIKit.framework
+    settings:
+      INFOPLIST_FILE: Projects/BookStore/Supporting Files/BookStore-Info.plist
+
+  BookStoreTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    configFiles:
+      Debug: ../../ConfigurationSettings/BookStoreTests-Debug.xcconfig
+      Release: ../../ConfigurationSettings/BookStoreTests-Release.xcconfig
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
+      - target: BookStore
+    settings:
+      INFOPLIST_FILE: Projects/BookStore/Supporting Files/BookStoreTests-Info.plist
+
+schemes:
+  AllTests:
+    build:
+      targets:
+        BookStore: test
+    test:
+      targets:
+        - BookStoreTests
+
+  BookStore:
+    build:
+      targets:
+        BookStore: all
+        BookStoreTests: [test]
+    run:
+      language: ko
+      environmentVariables:
+        - variable: OS_ACTIVITY_MODE
+          value: disable
+    test:
+      gatherCoverageData: true
+      disableMainThreadChecker: true
+      targets: [BookStoreTests]
+      environmentVariables:
+        OS_ACTIVITY_MODE: disable

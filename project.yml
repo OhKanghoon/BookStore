@@ -1,0 +1,34 @@
+name: BookStore
+options:
+  minimumXcodeGenVersion: 2.14.0
+  bundleIdPrefix: com.kanghoon.bookstore
+  defaultConfig: Release
+  createIntermediateGroups: true
+  settingPresets: none
+  tabWidth: 2
+  indentWidth: 2
+  groupSortPosition: top
+attributes:
+  ORGANIZATIONNAME: kanghoon
+configs:
+  Debug: debug
+  Release: release
+configFiles:
+  Debug: ConfigurationSettings/Project-Debug.xcconfig
+  Release: ConfigurationSettings/Project-Release.xcconfig
+fileGroups:
+  - ConfigurationSettings/Project-Shared.xcconfig
+  - ConfigurationSettings/BookStore-Shared.xcconfig
+  - ConfigurationSettings/BookStoreTests-Shared.xcconfig
+  - Projects/BookStore/Supporting Files/BookStore-Info.plist
+  - Projects/BookStore/Supporting Files/BookStoreTests-Info.plist
+schemes:
+  AllTests:
+    test:
+      gatherCoverageData: true
+      environmentVariables:
+        OS_ACTIVITY_MODE: disable
+        TEST: 1
+
+include:
+  - Projects/projects.yml

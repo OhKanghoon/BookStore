@@ -1,0 +1,17 @@
+targets:
+  BookStoreFoundation:
+    templates: [StaticFramework]
+
+  BookStoreFoundationTests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: BookStoreFoundation
+
+schemes:
+  AllTests:
+    build:
+      targets:
+        BookStoreFoundation: test
+    test:
+      targets:
+        - BookStoreFoundationTests

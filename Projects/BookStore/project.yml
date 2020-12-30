@@ -16,6 +16,7 @@ targets:
       ProvisioningStyle: Manual
     dependencies:
       - sdk: UIKit.framework
+      - target: BookStoreFoundation
     settings:
       INFOPLIST_FILE: Projects/BookStore/Supporting Files/BookStore-Info.plist
 

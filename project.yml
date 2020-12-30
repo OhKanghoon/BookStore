@@ -32,3 +32,4 @@ schemes:
 
 include:
   - Projects/projects.yml
+  - Projects/templates.yml

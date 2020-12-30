@@ -6,3 +6,6 @@ project: --include
 	echo "# This file is auto generated." > Projects/projects.yml
 	echo "include:" >> Projects/projects.yml
 	find Projects -name project.yml | awk '{ print "  - " $$1 }' | sed 's/Projects\///g' >> Projects/projects.yml
+
+framework:
+	pipenv run cookiecutter Templates/Framework

@@ -1,0 +1,17 @@
+targets:
+  {{cookiecutter.name}}:
+    templates: [Framework]
+
+  {{cookiecutter.name}}Tests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: {{cookiecutter.name}}
+
+schemes:
+  AllTests:
+    build:
+      targets:
+        {{cookiecutter.name}}: test
+    test:
+      targets:
+        - {{cookiecutter.name}}Tests
